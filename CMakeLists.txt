@@ -3,4 +3,4 @@ project(bout_helper)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(bout_helper main.cpp Fighter.cpp Fighter.hpp Bout.cpp Bout.hpp EnumClasses.hpp Ladder.cpp Ladder.hpp Scoreboard.cpp Scoreboard.hpp Tournament.cpp Tournament.hpp Rooster.cpp Rooster.hpp CSVManager.cpp CSVManager.hpp)
+add_executable(bout_helper main.cpp Fighter.cpp Fighter.hpp Bout.cpp Bout.hpp EnumClasses.hpp Ladder.cpp Ladder.hpp Scoreboard.cpp Scoreboard.hpp Tournament.cpp Tournament.hpp Rooster.cpp Rooster.hpp CSVManager.cpp CSVManager.hpp FighterCollection.cpp FighterCollection.hpp PrimitiveTypes.hpp Score.cpp Score.hpp Utilities.cpp Utilities.hpp)

@@ -35,7 +35,14 @@ enum class Stage{
 enum class Gender{
     Male,
     Female,
-    Other
+    Other,
+    Undefined
 };
 
+enum class Result{
+    WonFighter1,
+    WonFighter2,
+    Tie,
+    Pending
+};
 #endif //BOUT_HELPER_ENUMCLASSES_HPP

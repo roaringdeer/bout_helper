@@ -4,6 +4,8 @@
 
 #include "Fighter.hpp"
 
+int Fighter::_staticId = 0;
+
 std::string Fighter::getName() {
     std::string name = _forename + " " + _surname;
     return name;

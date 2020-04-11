@@ -6,6 +6,8 @@
 #define BOUT_HELPER_FIGHTER_HPP
 
 #include "EnumClasses.hpp"
+#include "Utilities.hpp"
+#include "PrimitiveTypes.hpp"
 #include <iostream>
 #include <map>
 #include <utility>
@@ -13,20 +15,24 @@
 class Fighter {
 
 private:
-    std::string _forename;
-    std::string _surname;
-    std::string _club;
-    std::string _nationality;
-    Gender _gender;
+    static FighterId _staticId;
+    FighterId _id;
+    std::string _forename = "";
+    std::string _surname = "";
+    std::string _club = "";
+    std::string _nationality = "";
+    Gender _gender = Gender::Undefined;
 
 public:
-    Fighter() = default;
-    Fighter(std::string forename, std::string surname, Gender gender , std::string club, std::string nationality){
+    Fighter() : _id(_staticId++){};
+    Fighter(std::string forename, std::string surname, const std::string& gender , std::string club, std::string nationality){
         _forename = std::move(forename);
         _surname = std::move(surname);
         _club = std::move(club);
-        _gender = gender;
         _nationality = std::move(nationality);
+        _gender = Utilities::genderStr2Enum(gender);
+        _id = _staticId;
+        _staticId++;
     }
 
     //getter
