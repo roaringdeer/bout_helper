@@ -2,25 +2,13 @@
 // Created by jacek on 2019-11-19.
 //
 
-#include "Fighter.hpp"
+#include "../include/Fighter.hpp"
 
 int Fighter::_staticId = 0;
 
 std::string Fighter::getName() {
     std::string name = _forename + " " + _surname;
     return name;
-}
-
-Gender Fighter::getGender() {
-    return _gender;
-}
-
-std::string Fighter::getClub() {
-    return _club;
-}
-
-std::string Fighter::getNationality() {
-    return _nationality;
 }
 
 void Fighter::setForename(const std::string& forename){

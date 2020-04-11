@@ -37,9 +37,10 @@ public:
 
     //getter
     std::string getName();
-    std::string getClub();
-    std::string getNationality();
-    Gender getGender();
+    std::string getClub() { return _club;};
+    std::string getNationality(){ return _nationality;};
+    Gender getGender() { return _gender;};
+    FighterId getId() { return _id;}
 
     //setter
     void setForename(const std::string& forename);

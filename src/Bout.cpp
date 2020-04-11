@@ -2,7 +2,7 @@
 // Created by jacek on 2019-11-19.
 //
 
-#include "Bout.hpp"
+#include "../include/Bout.hpp"
 int Bout::staticId = 0;
 
 Bout::Bout(std::shared_ptr<Fighter> fighter1, std::shared_ptr<Fighter> fighter2){

@@ -2,7 +2,7 @@
 // Created by jacek on 2020-04-11.
 //
 
-#include "Utilities.hpp"
+#include "../include/Utilities.hpp"
 
 std::map<std::string, Gender> Utilities::genderLUT = {
     {"Male", Gender::Male},
@@ -22,6 +22,7 @@ std::string Utilities::genderEnum2Str(Gender gender) {
     for(auto & it : genderLUT){
         if(it.second==gender) return it.first;
     }
+    return "Undefined";
 }
 
 Gender Utilities::genderStr2Enum(const std::string& gender) {
@@ -32,6 +33,7 @@ std::string Utilities::resultEnum2Str(Result result) {
     for(auto & it : resultLUT){
         if(it.second == result) return it.first;
     }
+    return "Pending";
 }
 
 Result Utilities::resultStr2Enum(const std::string &result) {

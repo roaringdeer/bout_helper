@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "Score.hpp"
+#include "../include/Score.hpp"
 
 
 void Score::reload() {

@@ -5,47 +5,39 @@
 #ifndef BOUT_HELPER_FIGHTERCOLLECTION_HPP
 #define BOUT_HELPER_FIGHTERCOLLECTION_HPP
 
-#include <list>
-#include <string>
-#include "PrimitiveTypes.hpp"
+
+#include "include/Fighter.hpp"
+#include "include/Collection.hpp"
 
 template <typename T>
-class FighterCollection {
+class FighterCollection : public Collection<T> {
     using iterator = typename std::list<T>::iterator;
     using const_iterator = typename std::list<T>::const_iterator;
-private:
-    std::list<T> _collection;
 public:
     FighterCollection() = default;
     ~FighterCollection() = default;
 
-    void addToCollection(T element) { _collection.push_back(element); }
-
     void deleteFromCollection(FighterId id) {
-        iterator element = getByID(id);
-        _collection.erase(element);
+        auto element = getByID(id);
+        this->_collection.erase(element);
     }
-
     void deleteFromCollection(const std::string& name) {
-        iterator element = getByName(name);
-        _collection.erase(element);
+        auto element = getByName(name);
+        this->_collection.erase(element);
     }
-
-    iterator begin(){ return _collection.begin(); }
-    iterator end(){ return  _collection.end(); }
-    iterator cbegin(){ return _collection.cbegin(); }
-    iterator cend(){ return _collection.cend(); }
-    size_t getCollectionSize(){ return _collection.size(); }
     iterator getByID(FighterId id) {
-        for(auto it = _collection.begin(); it != _collection.end(); it++){
-            if(it->getID == id) return it;
+        for(iterator it = this->_collection.begin(); it != this->_collection.end(); it++){
+            if(it->get()->getId() == id) return it;
         }
     }
     iterator getByName(const std::string& name){
-        for(auto it = _collection.begin(); it != _collection.end(); it++){
-            if(it->getName == name) return it;
+        for(auto it = this->_collection.begin(); it != this->_collection.end(); it++){
+            if(it->get()->getName() == name) return it;
         }
-        return _collection.end();
+        return this->_collection.end();
+    }
+    std::list<T> getCollection() const{
+        return this->_collection;
     }
 };
 

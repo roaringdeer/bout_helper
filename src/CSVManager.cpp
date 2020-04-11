@@ -2,7 +2,7 @@
 // Created by jacek on 2020-04-10.
 //
 
-#include "CSVManager.hpp"
+#include "../include/CSVManager.hpp"
 
 std::vector<std::vector<std::string>> CSVManager::getData() {
 
