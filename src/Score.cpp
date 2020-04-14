@@ -15,7 +15,7 @@ void Score::reload() {
 //    std::cout<<"post: "<<bigPointFighter1<<" "<<smallPointFighter1<<" "<<bigPointFighter2<<" "<<smallPointFighter2<<std::endl;
 }
 
-void Score::reset() {
+void Score::resetPoints() {
     bigPointFighter1 = 0;
     smallPointFighter1 = 0;
     bigPointFighter2 = 0;

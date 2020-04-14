@@ -8,16 +8,29 @@
 #include <vector>
 #include <memory>
 #include <map>
-#include "Bout.hpp"
 #include "Fighter.hpp"
 #include "Rooster.hpp"
+#include "BoutCollection.hpp"
+
 
 class Scoreboard {
-
-    Scoreboard(Rooster rooster);
-
 private:
-    std::map<std::shared_ptr<Fighter>, std::map<std::shared_ptr<Fighter>, std::shared_ptr<Bout>>> scoreboard;
+    BoutCollection<Bout> boutCollection;
+public:
+    Scoreboard(){
+        auto nullBout = new Bout(0, 0);
+        boutCollection.addToCollection(std::move(*nullBout));
+    };
+    //methods
+    BoutId addBout();
+    //getter
+    std::list<Bout>::iterator getBoutByID(BoutId boutId);
+    std::list<BoutId> getBoutIdsByFighterId(FighterId fighterId);
+    std::pair<std::pair<int, int >, std::pair<int, int>> getScoreByBoutId(BoutId boutId);
+    double estimateFighterProwess(FighterId fighterId);
+    //setter
+
+
 };
 
 

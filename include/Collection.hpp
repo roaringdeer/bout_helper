@@ -19,19 +19,17 @@ public:
     Collection() = default;
     ~Collection() = default;
 
-    //methods
-    void addToCollection(T element) { _collection.push_back(element); }
     void deleteFromCollection(iterator element){
         _collection.erase(element);
     }
-
     size_t getCollectionSize(){ return _collection.size(); }
     //iterators
     iterator begin(){ return _collection.begin(); }
     iterator end(){ return  _collection.end(); }
     const_iterator cbegin(){ return _collection.cbegin(); }
     const_iterator cend(){ return _collection.cend(); }
-
+    //methods
+    void addToCollection(T element) { _collection.push_back(element); }
 };
 
 

@@ -38,8 +38,7 @@ public:
     static int getPointsDivider(){return pointsDivider;}
 
     void reload();
-    void reset();
-
+    void resetPoints();
 };
 
 

@@ -6,8 +6,8 @@
 #define BOUT_HELPER_FIGHTERCOLLECTION_HPP
 
 
-#include "include/Fighter.hpp"
-#include "include/Collection.hpp"
+#include "Fighter.hpp"
+#include "Collection.hpp"
 
 template <typename T>
 class FighterCollection : public Collection<T> {
@@ -27,12 +27,12 @@ public:
     }
     iterator getByID(FighterId id) {
         for(iterator it = this->_collection.begin(); it != this->_collection.end(); it++){
-            if(it->get()->getId() == id) return it;
+            if(it->getId() == id) return it;
         }
     }
     iterator getByName(const std::string& name){
         for(auto it = this->_collection.begin(); it != this->_collection.end(); it++){
-            if(it->get()->getName() == name) return it;
+            if(it->getName() == name) return it;
         }
         return this->_collection.end();
     }
