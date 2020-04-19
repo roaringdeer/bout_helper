@@ -4,8 +4,8 @@
 
 #include "../include/Scoreboard.hpp"
 
-BoutId Scoreboard::addBout() {
-    auto bout = new Bout();
+BoutId Scoreboard::addBout(Stage stage) {
+    auto bout = new Bout(stage);
     BoutId tempId= bout->getId();
     boutCollection.addToCollection(std::move(*bout));
     return tempId;

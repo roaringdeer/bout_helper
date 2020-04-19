@@ -22,12 +22,12 @@ public:
     void deleteFromCollection(iterator element){
         _collection.erase(element);
     }
-    size_t getCollectionSize(){ return _collection.size(); }
+    size_t getCollectionSize() const { return _collection.size(); }
     //iterators
     iterator begin(){ return _collection.begin(); }
     iterator end(){ return  _collection.end(); }
-    const_iterator cbegin(){ return _collection.cbegin(); }
-    const_iterator cend(){ return _collection.cend(); }
+    const_iterator cbegin() const{ return _collection.cbegin(); }
+    const_iterator cend() const { return _collection.cend(); }
     //methods
     void addToCollection(T element) { _collection.push_back(element); }
 };

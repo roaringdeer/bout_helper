@@ -29,4 +29,4 @@ add_executable(bout_helper
         include/Utilities.hpp
         src/FighterCollection.cpp
         include/FighterCollection.hpp
-        include/BoutCollection.hpp)
+        include/BoutCollection.hpp src/GroupStage.cpp include/GroupStage.hpp src/Group.cpp include/Group.hpp)

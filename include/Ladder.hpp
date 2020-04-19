@@ -15,21 +15,19 @@ private:
     BoutId semifinals[2] = {0, 0};
     BoutId final = 0;
     BoutId thirdPlace = 0;
-    std::shared_ptr<Scoreboard> scoreboard;
+    std::shared_ptr<Scoreboard> ptrScoreboard;
     std::vector<FighterId> fighters;
-    FighterId luckyPassFighter;
-
+    FighterId luckyPassFighter = 0;
     void initilizeLadder();
 public:
     Ladder() = default;
+    ~Ladder() = default;
+    Ladder(std::vector<FighterId> groupWinners, std::shared_ptr<Scoreboard> scoreBoard);
     bool addFighter(FighterId fighterId){};
     void startLadder();
 
-    int getFightersNumber() {return fighters.size();}
-    void getActiveBout();
+    int getFightersNumber(){ return fighters.size();}
 
-
-    void setActiveBout();
 };
 
 

@@ -16,16 +16,18 @@ private:
     BoutId id;
     FighterId idFighter1 = 0;
     FighterId idFighter2 = 0;
+    Stage stage;
     std::shared_ptr<Score> ptrScore;
     Result result = Result::Pending;
     Weapon weaponFighter1[2] = {Weapon::None, Weapon::None};
     Weapon weaponFighter2[2] = {Weapon::None, Weapon::None};
 
 public:
-    Bout() : id(staticId++){
+    Bout(Stage boutStage) : id(staticId++){
         auto score = new Score();
         ptrScore = std::make_shared<Score>(*score);
         ptrScore->resetPoints();
+        stage = boutStage;
     };
     Bout(FighterId idFighter1, FighterId idFighter2) : id(staticId++), idFighter1(idFighter1), idFighter2(idFighter2){
         auto score = new Score();

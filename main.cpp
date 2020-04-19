@@ -7,16 +7,22 @@
 #include "include/Rooster.hpp"
 #include "include/Bout.hpp"
 #include "include/Scoreboard.hpp"
+#include "include/Ladder.hpp"
+#include "include/GroupStage.hpp"
 #include <iostream>
 
 
 int main(){
     //test Rooster
+    std::cout<<std::endl;
+    std::cout<<"ROOSTER"<<std::endl;
     Rooster rooster;
     rooster.getRoosterFromCSV();
     std::cout<<rooster.getFighterById(2)->getName()<< " vs "<< rooster.getFighterById(3)->getName()<<std::endl;
 
     //test Bout
+    std::cout<<std::endl;
+    std::cout<<"BOUT"<<std::endl;
     Bout bout(rooster.getFighterById(2)->getId(), rooster.getFighterByName("Young Jip")->getId());
     bout.setWeaponFighter1(Weapon::OneHandedSword, Weapon::Buckler);
     bout.setScore(1, 3,1, 4);
@@ -24,10 +30,13 @@ int main(){
     std::cout<<bout.getScoreFighter1().first<<"|"<<bout.getScoreFighter1().second<<" : "<<bout.getScoreFighter2().first<<"|"<<bout.getScoreFighter2().second<<std::endl;
     std::cout<<Utilities::resultEnum2Str(bout.getResult())<<std::endl;
 
+
+    std::cout<<std::endl;
+    std::cout<<"SCOREBOARD"<<std::endl;
     Scoreboard scoreboard;
-    auto id1 = scoreboard.addBout();
-    auto id2 = scoreboard.addBout();
-    auto id3 = scoreboard.addBout();
+    auto id1 = scoreboard.addBout(Stage::Final);
+    auto id2 = scoreboard.addBout(Stage::Final);
+    auto id3 = scoreboard.addBout(Stage::Final);
 
     scoreboard.getBoutByID(id1)->setFighterIds(2, 3);
     scoreboard.getBoutByID(id2)->setFighterIds(1, 2);
@@ -53,6 +62,26 @@ int main(){
     std::cout<<"Fighter Prowess 2: "<<scoreboard.estimateFighterProwess(2)<<std::endl;
     std::cout<<"Fighter Prowess 3: "<<scoreboard.estimateFighterProwess(3)<<std::endl;
 
+    std::cout<<std::endl;
+    std::cout<<"LADDER"<<std::endl;
+    std::vector<FighterId> ids;
+    for(int i = 0; i<16; i++){
+        ids.push_back(i+1);
+    }
+    auto ptr = std::shared_ptr<Scoreboard>(&scoreboard);
+    Ladder ladder(ids, ptr);
+    std::cout<<ladder.getFightersNumber()<<std::endl;
+
+    std::cout<<std::endl;
+    std::cout<<"GROUP STAGE"<<std::endl;
+    GroupStage groupStage(ptr);
+    groupStage.createGroups(rooster);
+    std::cout<<std::endl;
+
+    for(auto i : groupStage.getGroups()){
+        std::cout<<"Group "<< i.getGroupId()<<": ";
+        Utilities::printVectorInline(i.getFighterIds(), " ");
+    }
 
     return 0;
 }

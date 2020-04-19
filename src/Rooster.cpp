@@ -2,8 +2,11 @@
 // Created by jacek on 2020-04-10.
 //
 
+#include <random>
+#include <algorithm>
 #include "../include/Rooster.hpp"
 #include "../include/CSVManager.hpp"
+Fighter Rooster::nullFighter = Fighter(0,"---", "---", "Undefined", "---", "---");
 
 void Rooster::getRoosterFromCSV(const std::string &fileName) {
     int id = 0;
@@ -22,4 +25,15 @@ std::list<Fighter>::iterator Rooster::getFighterById(FighterId id) {
 
 std::list<Fighter>::iterator Rooster::getFighterByName(const std::string& name) {
     return rooster.getByName(name);
+}
+
+std::vector<FighterId> Rooster::getShuffledFighters() const {
+    std::vector<FighterId> ids;
+    for(auto it = rooster.cbegin(); it != rooster.cend(); it++){
+        ids.push_back(it->getId());
+    }
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(ids.begin(), ids.end(), g);
+    return ids;
 }

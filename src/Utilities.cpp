@@ -2,6 +2,7 @@
 // Created by jacek on 2020-04-11.
 //
 
+#include <iostream>
 #include "../include/Utilities.hpp"
 
 std::map<std::string, Gender> Utilities::genderLUT = {
@@ -39,5 +40,3 @@ std::string Utilities::resultEnum2Str(Result result) {
 Result Utilities::resultStr2Enum(const std::string &result) {
     return resultLUT[result];
 }
-
-

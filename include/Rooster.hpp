@@ -10,16 +10,17 @@
 #include "FighterCollection.hpp"
 #include <memory>
 #include <vector>
+
 class Rooster {
 using iterator = typename std::list<Fighter>::iterator;
 using const_iterator = typename std::list<Fighter>::const_iterator;
 private:
     FighterCollection<Fighter> rooster;
+    static Fighter nullFighter;
 public:
-    Rooster(){
-        auto nullFighter = new Fighter("---", "---", "Undefined", "---", "---");
-        rooster.addToCollection(std::move(*nullFighter));
-    };
+
+
+    Rooster() = default;
     void getRoosterFromCSV(const std::string& fileName = "fighters.csv");
     iterator begin() { return rooster.begin();}
     iterator end() { return rooster.end();}
@@ -27,6 +28,9 @@ public:
     const_iterator cend() { return rooster.cbegin();}
     std::list<Fighter>::iterator getFighterById(FighterId id);
     std::list<Fighter>::iterator getFighterByName(const std::string& name);
+    std::vector<FighterId> getShuffledFighters() const ;
+    size_t size() const { return rooster.getCollectionSize();}
+
 };
 
 

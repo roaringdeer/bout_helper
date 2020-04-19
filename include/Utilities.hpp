@@ -5,8 +5,10 @@
 #ifndef BOUT_HELPER_UTILITIES_HPP
 #define BOUT_HELPER_UTILITIES_HPP
 
+#include <iostream>
 #include <string>
 #include <map>
+#include <vector>
 #include "EnumClasses.hpp"
 
 class Utilities {
@@ -18,7 +20,17 @@ public:
     static std::string genderEnum2Str(Gender gender);
     static Result resultStr2Enum(const std::string& result);
     static std::string resultEnum2Str(Result result);
-
+    template<typename T> static  void printVectorNewline(std::vector<T> vector){
+        for(auto i : vector){
+            std::cout<<i<<std::endl;
+        }
+    };
+    template<typename T> static  void printVectorInline(std::vector<T> vector, const std::string& separator = " "){
+        for(auto i : vector){
+            std::cout<<i<<" "<<separator;
+        }
+        std::cout<<std::endl;
+    };
 };
 
 

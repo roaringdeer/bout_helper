@@ -25,11 +25,11 @@ enum class Points{
 
 enum class Stage{
     GroupStage,
-    Eliminations,
     EighthFinals,
     QuaterFinals,
     SemiFinals,
-    Final
+    Final,
+    ThirdPlace
 };
 
 enum class Gender{

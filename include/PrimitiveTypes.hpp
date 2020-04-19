@@ -7,5 +7,5 @@
 
 using FighterId = int;
 using BoutId = int;
-
+using GroupId = int;
 #endif //BOUT_HELPER_PRIMITIVETYPES_HPP
